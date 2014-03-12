@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: <CONSUL_SERVER_URL>/v1/catalog/node/1ce38c8994f1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      X-Consul-Index:
+      - '280'
+      X-Consul-Knownleader:
+      - 'true'
+      X-Consul-Lastcontact:
+      - '0'
+      Date:
+      - Tue, 12 Aug 2014 00:12:50 GMT
+      Content-Length:
+      - '1945'
+    body:
+      encoding: UTF-8
+      string: |
+        {"Node":{"Node":"1ce38c8994f1","Address":"192.168.59.103"},"Services":{"02ac5f50800d5a4f668a2488f92640fa7471b9e2111d63cf1899772e58fa20f1":{"ID":"02ac5f50800d5a4f668a2488f92640fa7471b9e2111d63cf1899772e58fa20f1","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49159},"053512e75b0a18673a4eb212622c8065af8c29502e16c74ca6b28fe8d8f1b8e6":{"ID":"053512e75b0a18673a4eb212622c8065af8c29502e16c74ca6b28fe8d8f1b8e6","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49156},"228d07b0954b3066fcc4aa6d4eba7f095044223fb9ecefe54666cfeedf7a7fef":{"ID":"228d07b0954b3066fcc4aa6d4eba7f095044223fb9ecefe54666cfeedf7a7fef","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49158},"3905d42e1d85d1cad8d321cbdbeff6e152e785e7acd7723801b834c55b168908":{"ID":"3905d42e1d85d1cad8d321cbdbeff6e152e785e7acd7723801b834c55b168908","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49155},"58d1ed1ca4d907b5caf66b9575e5f45152672ece352d18cd9dc348d12555e949":{"ID":"58d1ed1ca4d907b5caf66b9575e5f45152672ece352d18cd9dc348d12555e949","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49157},"consul":{"ID":"consul","Service":"consul","Tags":null,"Port":8300},"<DOCKER_SERVICE_NAME>":{"ID":"<DOCKER_SERVICE_NAME>","Service":"<DOCKER_SERVICE_NAME>","Tags":["master","v1"],"Port":8400},"e69f32ea463e3afd1e024de3b0790c42211663615f42c030eacfd9e30f3ed736":{"ID":"e69f32ea463e3afd1e024de3b0790c42211663615f42c030eacfd9e30f3ed736","Service":"business-service-foo","Tags":["tag:","repo:","command:[\"/bin/sh\", \"-c\", \"/start web\"]","environment:development"],"Port":49160}}}
+    http_version: 
+  recorded_at: Wed, 13 Aug 2014 01:50:01 GMT
+recorded_with: VCR 2.9.2

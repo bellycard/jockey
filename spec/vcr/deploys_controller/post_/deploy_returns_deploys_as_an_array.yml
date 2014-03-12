@@ -1,0 +1,73 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: <CONSUL_SERVER_URL>/v1/catalog/service/jockey-api-development
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      X-Consul-Index:
+      - '1533'
+      X-Consul-Knownleader:
+      - 'true'
+      X-Consul-Lastcontact:
+      - '0'
+      Date:
+      - Wed, 01 Oct 2014 21:26:57 GMT
+      Content-Length:
+      - '158'
+    body:
+      encoding: UTF-8
+      string: '[{"Node":"aeaad9cf3728","Address":"172.17.42.1","ServiceID":"jockey-api-development","ServiceName":"jockey-api-development","ServiceTags":[],"ServicePort":0}]'
+    http_version: 
+  recorded_at: Wed, 01 Oct 2014 21:26:56 GMT
+- request:
+    method: get
+    uri: <CONSUL_SERVER_URL>/v1/catalog/node/aeaad9cf3728
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      X-Consul-Index:
+      - '1533'
+      X-Consul-Knownleader:
+      - 'true'
+      X-Consul-Lastcontact:
+      - '0'
+      Date:
+      - Wed, 01 Oct 2014 21:26:57 GMT
+      Content-Length:
+      - '363'
+    body:
+      encoding: UTF-8
+      string: '{"Node":{"Node":"aeaad9cf3728","Address":"172.17.42.1"},"Services":{"consul":{"ID":"consul","Service":"consul","Tags":[],"Port":8300},"jockey-api-development":{"ID":"jockey-api-development","Service":"jockey-api-development","Tags":[],"Port":0},"jockey-build-development":{"ID":"jockey-build-development","Service":"jockey-build-development","Tags":[],"Port":0}}}'
+    http_version: 
+  recorded_at: Wed, 01 Oct 2014 21:26:56 GMT
+recorded_with: VCR 2.9.2

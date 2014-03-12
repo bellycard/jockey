@@ -1,0 +1,57 @@
+inherit_from: .rubocop_todo.yml
+
+Documentation:
+  Enabled: false
+
+Encoding:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+LineLength:
+  Max: 120
+  Exclude:
+    - jockey/lib/jockey/cli/jockey_cli.rb
+    - lib/node_selection.rb
+
+MethodLength:
+  Max: 120
+
+NumericLiterals:
+  Enabled: false
+
+Proc:
+  Enabled: false
+
+SignalException:
+  # prefer raise to fail
+  EnforcedStyle: only_raise
+
+Blocks:
+  Enabled: false
+
+CyclomaticComplexity:
+  Enabled: false
+
+ParameterLists:
+  Enabled: false
+
+Style/ClassLength:
+  Exclude:
+    - app/models/build.rb
+    - app/models/deploy.rb
+    - lib/container.rb
+
+Style/EachWithObject:
+  Enabled: false
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+    - vendor/**/*
+    - spec/**/*
+    - bin/*
+    - jockey/jockey.gemspec

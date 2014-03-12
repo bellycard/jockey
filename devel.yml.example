@@ -1,0 +1,48 @@
+mysql:
+  extends:
+    file: base.yml
+    service: mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: root
+
+registry:
+  extends:
+    file: base.yml
+    service: registry
+
+consul:
+  extends:
+    file: base.yml
+    service: consul
+
+dcupdate:
+  extends:
+    file: base.yml
+    service: dcupdate
+  links:
+    - consul
+  environment:
+    CONSUL_IP: "consul"
+    DOCKER_HOST: "tcp://192.168.59.103:2376"
+    SERVICE_NAMES: "jockey-api-development,jockey-build-development"
+    SYSTEM_SERVICES: "mysql:5.6.21,registry:2.0,belly/consul:0.5.0,belly/docker_consul_update:latest,jockey_web,jockey_dcupdate"
+
+web:
+  extends:
+    file: base.yml
+    service: web
+  links:
+   - mysql
+   - registry
+   - consul
+  volumes:
+    - ".:/usr/src/app"
+    - "/Users/example/.boot2docker/certs/boot2docker-vm:/opt/boot2docker-certs"
+  environment:
+    URL: https://foobar.ngrok.com
+    DOCKER_HOST_CERT_PATH: "/Users/example/.boot2docker/certs/boot2docker-vm"
+    GITHUB_ORGANIZATION_ID: 1090217
+    GITHUB_TEAM_ID: 142000
+    GITHUB_KEY: abcdef
+    GITHUB_SECRET: abcdef
+    GITHUB_OAUTH_TOKEN: abcdef

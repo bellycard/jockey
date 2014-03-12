@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: <CONSUL_SERVER_URL>/v1/catalog/service/jockey-app_stack1-some_environment
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      X-Consul-Index:
+      - '1533'
+      X-Consul-Knownleader:
+      - 'true'
+      X-Consul-Lastcontact:
+      - '0'
+      Date:
+      - Wed, 01 Oct 2014 21:28:02 GMT
+      Content-Length:
+      - '2'
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 01 Oct 2014 21:28:01 GMT
+recorded_with: VCR 2.9.2

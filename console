@@ -1,0 +1,9 @@
+require './app'
+
+begin
+  require 'pry'
+  Pry.start
+rescue LoadError
+  require 'irb/completion'
+  IRB.start
+end

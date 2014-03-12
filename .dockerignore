@@ -1,0 +1,10 @@
+.vagrant
+Vagrantfile
+unicorn.pid
+.git
+.env
+.env.test
+.rubocop.yml
+tmp/pids
+*.example
+*.yml

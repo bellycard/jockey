@@ -1,0 +1,39 @@
+mysql:
+  image: "mysql:5.6.21"
+  ports:
+    - "3306:3306"
+
+registry:
+  image: "registry:0.7.3"
+  ports:
+    - "5000:5000"
+
+consul:
+  image: "belly/consul:0.5.0"
+  command: "-server -bootstrap -advertise=192.168.59.103 -dc=development"
+  ports:
+    - 8300
+    - 8400
+    - "8500:8500"
+    - "8600:53/udp"
+
+dcupdate:
+  image: "belly/docker_consul_update:latest"
+  environment:
+    DOCKER_CERT_PATH: "/opt/boot2docker-certs"
+
+web:
+  build: .
+  command: rails server --port 8888
+  ports:
+    - "4044:8888"
+  environment:
+    RACK_ENV: development
+    RAILS_ENV: development
+    SERVICE_NAME: jockey
+    DATABASE_URL: "mysql2://root:root@172.17.42.1/jockey_development?pool=50"
+    DOCKER_REGISTRY_URL: "172.17.42.1:5000"
+    CONSUL_SERVER_URL: "http://172.17.42.1:8500"
+    DOCKER_URL: "tcp://192.168.59.103:2376"
+    DOCKER_TLS_VERIFY: 1
+    DOCKER_CERT_PATH: "/opt/boot2docker-certs"
